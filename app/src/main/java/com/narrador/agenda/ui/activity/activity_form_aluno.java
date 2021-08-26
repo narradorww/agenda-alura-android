@@ -1,5 +1,6 @@
 package com.narrador.agenda.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import com.narrador.agenda.R;
 import com.narrador.agenda.dao.AlunoDAO;
 import com.narrador.agenda.model.Aluno;
+
+import java.io.Serializable;
 
 
 public class activity_form_aluno extends AppCompatActivity {
@@ -28,6 +31,11 @@ public class activity_form_aluno extends AppCompatActivity {
         setTitle(TITULO_APPBAR);
         inicializaCampos();
         configuraBotaoSalvar();
+        Intent dados = getIntent();
+        Aluno aluno = (Aluno) dados.getSerializableExtra("aluno");
+        campoNome.setText(aluno.getNome());
+        campoTelefone.setText(aluno.getTelefone());
+        campoEmail.setText(aluno.getEmail());
     }
 
     private void configuraBotaoSalvar() {
