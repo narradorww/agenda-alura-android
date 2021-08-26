@@ -1,7 +1,6 @@
 package com.narrador.agenda.dao;
 
 import com.narrador.agenda.model.Aluno;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,6 @@ public class AlunoDAO {
 
     public void salva(Aluno aluno){
         alunos.add(aluno);
-
-
     }
 
     public List<Aluno> todos() {
