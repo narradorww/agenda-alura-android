@@ -5,7 +5,7 @@ import com.narrador.agenda.model.Aluno;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlunoDao {
+public class AlunoDAO {
     private final static List<Aluno> alunos = new ArrayList<>();
 
     public void salva(Aluno aluno){

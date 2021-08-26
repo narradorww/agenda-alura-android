@@ -1,6 +1,7 @@
 package com.narrador.agenda.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.narrador.agenda.R;
+import com.narrador.agenda.dao.AlunoDAO;
 import com.narrador.agenda.dao.AlunoDao;
 import com.narrador.agenda.model.Aluno;
 
@@ -20,9 +22,7 @@ public class activity_form_aluno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_aluno);
 
-        new AlunoDao();
-
-
+        final AlunoDAO dao = new AlunoDAO();
 
 
         setTitle("Cadastro de Alunos");
@@ -40,11 +40,16 @@ public class activity_form_aluno extends AppCompatActivity {
                 String telefone = campoTelefone.getText().toString();
                 String email = campoEmail.getText().toString();
                 Aluno alunoCriado = new Aluno(nome, telefone, email);
-                Toast.makeText( activity_form_aluno.this,
+                /*Toast.makeText( activity_form_aluno.this,
                                     alunoCriado.getNome() + " - "
                                         + alunoCriado.getEmail() + " - "
                                         + alunoCriado.getTelefone(),
-                                Toast.LENGTH_SHORT).show();
+                                Toast.LENGTH_SHORT).show();*/
+
+                dao.salva(alunoCriado);
+
+
+                startActivity(new Intent(activity_form_aluno.this, ListaAlunosActivity.class));
             }
         });
 
