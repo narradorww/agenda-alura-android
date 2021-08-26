@@ -1,17 +1,14 @@
 package com.narrador.agenda.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.narrador.agenda.R;
 import com.narrador.agenda.dao.AlunoDAO;
-import com.narrador.agenda.dao.AlunoDao;
 import com.narrador.agenda.model.Aluno;
 
 
@@ -49,7 +46,7 @@ public class activity_form_aluno extends AppCompatActivity {
                 dao.salva(alunoCriado);
 
 
-                startActivity(new Intent(activity_form_aluno.this, ListaAlunosActivity.class));
+                finish();
             }
         });
 
